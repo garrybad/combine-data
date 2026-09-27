@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Reconciliation Automation",
+  title: "Combined Data",
   description: "Automated reconciliation and XLSX export"
 };
 
