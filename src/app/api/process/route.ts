@@ -49,7 +49,7 @@ export async function POST(request: Request) {
         const { rows, stats } = processRows(tbRows, mappingRows, lkpRows);
         const xlsx = await createXlsx(rows);
 
-        return new Response(xlsx, {
+        return new Response(xlsx as any, {
             status: 200,
             headers: {
                 "Content-Type":
