@@ -80,7 +80,7 @@ export default function UploadForm() {
             const anchor = document.createElement("a");
 
             anchor.href = url;
-            anchor.download = "hasil-rekonsiliasi.xlsx";
+            anchor.download = "hasil-kombinasi.xlsx";
 
             document.body.appendChild(anchor);
             anchor.click();
@@ -242,66 +242,6 @@ export default function UploadForm() {
                         </div>
                     </form>
                 </section>
-
-                {stats && (
-                    <section className="mt-6 overflow-hidden rounded-[28px] border border-emerald-100 bg-white shadow-[0_20px_50px_-28px_rgba(15,23,42,0.28)] dark:border-emerald-900/40 dark:bg-neutral-900">
-                        <div className="flex flex-col gap-4 border-b border-emerald-50 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 dark:border-neutral-800">
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-300">
-                                    <CheckIcon />
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">
-                                        Selesai
-                                    </p>
-                                    <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">
-                                        Hasil kombinasi siap
-                                    </h2>
-                                </div>
-                            </div>
-
-                            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
-                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                                .XLSX terunduh
-                            </span>
-                        </div>
-
-                        <dl className="grid grid-cols-2 gap-3 p-5 sm:grid-cols-4 sm:p-8">
-                            <Stat label="Baris TB" value={stats.tbRows} />
-                            <Stat
-                                label="Terpetakan"
-                                value={stats.mappedRows}
-                                variant="success"
-                            />
-                            <Stat
-                                label="Akun tidak cocok"
-                                value={stats.unmatchedRincianAkun}
-                                warn={stats.unmatchedRincianAkun > 0}
-                            />
-                            <Stat
-                                label="COA F1 tidak cocok"
-                                value={stats.unmatchedCoaF1}
-                                warn={stats.unmatchedCoaF1 > 0}
-                            />
-                            <Stat label="Filter F5" value={stats.filteredByF5} />
-                            <Stat
-                                label="Baris hasil"
-                                value={stats.resultRows}
-                                highlight
-                            />
-                            <Stat
-                                label="Duplikat mapping"
-                                value={stats.duplicateMappingKeys}
-                                warn={stats.duplicateMappingKeys > 0}
-                            />
-                            <Stat
-                                label="Duplikat F2 LKP"
-                                value={stats.duplicateLkpF2Keys}
-                                warn={stats.duplicateLkpF2Keys > 0}
-                            />
-                        </dl>
-                    </section>
-                )}
             </div>
         </main>
     );
